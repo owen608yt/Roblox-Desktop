@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Roblox Desktop</title>
+
+        <link rel="stylesheet" href="../css/index.css" />
+        <script type="module" src="../js/main.js" defer></script>
+    </head>
+
+    <body>
+        <div id="login" class="hidden">
+            <div class="login-center">
+                <h4 class="h4-title">Log In</h4>
+                <input id="login-username" type="text" class="primary-input" placeholder="Username" />
+                <input id="login-password" type="password" class="primary-input" placeholder="Password" />
+                <button class="small-intext-btn horiz-centered">Sign Up?</button><br />
+                <button class="primary-btn" id="login-button">Log In</button>
+            </div>
+
+            <!-- Waves made by Goodkatz https://codepen.io/goodkatz/pen/LYPGxQz -->
+            <div>
+                <svg
+                    class="waves"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28"
+                    preserveAspectRatio="none"
+                    shape-rendering="auto"
+                >
+                    <defs>
+                        <path
+                            id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                        />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="var(--accent-color-p7)" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="var(--accent-color-p5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="var(--accent-color-p3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--accent-color)" />
+                    </g>
+                </svg>
+            </div>
+            <div class="wave-extra">
+                <p class="footer-copyright">(c) Fynotix</p>
+                <button class="small-intext-btn-nc horiz-centered footer-discord-btn">Join the Discord</button>
+            </div>
+
+            <div id="twostep-authenticator" class="black-full hidden">
+                <div class="twostep-center">
+                    <h4 class="h4-title">Two-Step Authentication</h4>
+                    <div name="codes" class="twostep-codes">
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                        <input name="code" class="ts-code code-input-ts-authenticator" placeholder="0" required />
+                    </div>
+                    <button class="small-intext-btn horiz-centered">Resend Code</button><br />
+                    <button class="primary-btn" id="ts-authenticator-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="hidden">
+            <div id="topbar"></div>
+            <div id="container">
+                <div id="home">
+                    <div id="home-gameimg-container">
+                        <img class="hidden" id="home-gameimage" src="" />
+                    </div>
+                    <div id="favorites">
+                        <h4>FAVORITES (0)</h4>
+                        <ul id="favorites-list"></ul>
+                    </div>
+                    <div id="home-container">
+                        <div id="home-gameview" class="hidden">
+                            <button id="home-gameview-close-btn" class="square-btn">
+                                <img src="../resources/close-button.png" />
+                            </button>
+                            <img id="home-img-logo" src="" />
+                            <h2 id="home-logo-title" class="hidden">-</h2>
+                            <div id="home-gameinfo">
+                                <button id="play-btn">
+                                    <img id="play-btn-img" src="../resources/play-button.png" />
+                                    <p>PLAY</p>
+                                </button>
+
+                                <div id="home-play-rightside">
+                                    <div class="home-gamestat">
+                                        <h4 class="dimmed">LAST PLAYED</h4>
+                                        <p id="last-played" class="dimmed">Apr 8, 2022</p>
+                                    </div>
+                                    <div class="home-gamestat">
+                                        <h4 class="dimmed">PLAY TIME</h4>
+                                        <p id="play-time" class="dimmed">0 seconds</p>
+                                    </div>
+                                    <div class="home-gamestat">
+                                        <h4 class="dimmed">ACHIEVEMENTS</h4>
+                                        <p id="achievements-stat" class="dimmed">0/1123 obtained</p>
+                                    </div>
+
+                                    <div id="home-play-extrabtns">
+                                        <button id="like-btn" class="square-btn">
+                                            <img src="../resources/like-button.png" />
+                                        </button>
+                                        <button id="favorite-btn" class="square-btn">
+                                            <img src="../resources/favorite-button.png" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="home-game-tabbar" class="tabbar">
+                                    <button name="store" class="tab">Store</button>
+                                    <button name="info" class="tab">Description</button>
+                                    <button name="servers" class="tab">Servers</button>
+                                </div>
+
+                                <div id="home-game-infocontainer">
+                                    <div name="store" class="home-game-infotab hidden"></div>
+                                    <div name="info" class="home-game-infotab"></div>
+                                    <div name="servers" class="home-game-infotab hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="default-home">
+                            <h3 class="welcome">Welcome! <b id="welcome-username">{DisplayName}</b></h3>
+                            <br />
+                            <br />
+                            <br />
+
+                            <h2>Recently Played</h2>
+
+                            <div class="carrousel">
+                                <div id="recently-played" class="card-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="captcha" class="black-full hidden">
+            <iframe id="captcha-iframe" scrolling="no" scroll="no" seamless="seamless"></iframe>
+        </div>
+
+        <div class="transition-container">
+            <div id="transition-primary" class="transition-cover" style="left: 100%; top: 0%"></div>
+            <div id="transition-black" class="transition-cover" style="left: 100%; top: 0%"></div>
+        </div>
+    </body>
+</html>
